@@ -1,0 +1,57 @@
+name: Deploy Laravel 10 and React Frontend to InfinityFree
+
+on:
+  push:
+    branches:
+      - main  # Ez akkor fut le, amikor a "main" branch-ra történik push
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout a repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2. Set up PHP (Laravel backendhez)
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'  # Használhatod a szükséges PHP verziót
+          extensions: mbstring, bcmath, zip, curl
+
+      # 3. Laravel composer telepítés
+      - name: Install Composer dependencies for backend
+        run: |
+          cd backend
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar install --no-dev --optimize-autoloader
+
+      # 4. Laravel beállítások (kulcs generálás, cache)
+      - name: Configure Laravel backend
+        run: |
+          cd backend
+          php artisan key:generate
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+      # 5. React frontend build
+      - name: Install Node.js and Build React frontend
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Használhatod a szükséges Node verziót
+      - run: |
+          npm install
+          npm run build
+
+      # 6. FTP deploy
+      - name: Deploy React build to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/build/  # A React build kimenetét töltjük fel
+          remote-dir: ${{ secrets.FTP_REMOTE_FRONTEND_PATH }}  # A távoli mappa a frontendhez
