@@ -23,10 +23,18 @@ jobs:
 
       # 3. Laravel composer telepítés
 
-      - name: Install Composer dependencies for backend
+      - name: Install Composer 2.5.5
         run: |
-          curl -sS https://getcomposer.org/installer | php
+          curl -sS https://getcomposer.org/installer | php -- --version=2.5.5
+          sudo mv composer.phar /usr/local/bin/composer
+          composer --version  # Ellenőrizd, hogy a Composer telepítve van, és a kívánt verzió van-e
           php composer.phar install --no-dev --optimize-autoloader
+
+
+      # - name: Install Composer dependencies for backend
+      #   run: |
+      #     curl -sS https://getcomposer.org/installer | php
+      #     php composer.phar install --no-dev --optimize-autoloader
 
       # 4. Laravel beállítások (kulcs generálás, cache)
       - name: Configure Laravel backend
