@@ -48,7 +48,7 @@ jobs:
 
       # 6. FTP deploy
       - name: Deploy React build to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           ftp-server: ${{ secrets.FTP_HOST }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
