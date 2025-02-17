@@ -23,8 +23,7 @@ jobs:
 
       # 3. Laravel composer telepítés
       - name: Install Composer dependencies for backend
-        run: |
-          cd backend
+        run:
           curl -sS https://getcomposer.org/installer | php
           php composer.phar install --no-dev --optimize-autoloader
 
