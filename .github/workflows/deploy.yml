@@ -22,11 +22,11 @@ jobs:
           extensions: mbstring, bcmath, zip, curl
 
       # 3. Laravel composer telepítés
-      
-      # - name: Install Composer dependencies for backend
-      #   run: |
-      #     curl -sS https://getcomposer.org/installer | php
-      #     php composer.phar install --no-dev --optimize-autoloader
+
+      - name: Install Composer dependencies for backend
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          php composer.phar install --no-dev --optimize-autoloader
 
       # 4. Laravel beállítások (kulcs generálás, cache)
       - name: Configure Laravel backend
