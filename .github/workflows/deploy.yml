@@ -22,12 +22,10 @@ jobs:
           extensions: mbstring, bcmath, zip, curl
 
       # 3. Laravel composer telepítés
-
       - name: Install Composer 2.5.5
         run: |
           curl -sS https://getcomposer.org/installer | php -- --version=2.5.5
           sudo mv composer.phar /usr/local/bin/composer  # Mozdítsd a fájlt globálisan elérhető helyre
-          composer update
           composer install  # Telepíti a függőségeket
           composer --version  # Ellenőrzi a telepített Composer verzióját
 
@@ -46,14 +44,15 @@ jobs:
           node-version: '18'  # Használhatod a szükséges Node verziót
       - run: |
           npm install
+          npm run build  # Ezzel készítjük el a React build fájlokat
 
-
-      # 6. FTP deploy
-      - name: Deploy React build to FTP
+      # 6. FTP deploy Laravel backend
+      - name: Deploy Laravel backend to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: /  # A React build kimenetét töltjük fel
-          server-dir: ${{ secrets.FTP_REMOTE_FRONTEND_PATH }}  # A távoli mappa a frontendhez
+          local-dir: ./  # Az egész Laravel projektet feltöltjük
+          server-dir: ${{ secrets.FTP_REMOTE_LARAVEL_PATH }}  # A távoli mappa a Laravel számára
+
