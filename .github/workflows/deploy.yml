@@ -46,7 +46,7 @@ jobs:
           node-version: '18.19'  # Használhatod a szükséges Node verziót
       - run: |
           npm install
-          npm run build
+          
 
       # 6. FTP deploy
       - name: Deploy React build to FTP
