@@ -62,5 +62,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/build/  # A React build kimenetét töltjük fel
+          local-dir: public/  # A React build kimenetét töltjük fel
           server-dir: ${{ secrets.FTP_REMOTE_FRONTEND_PATH }}  # A távoli mappa a frontendhez
