@@ -27,10 +27,9 @@ jobs:
         run: |
           curl -sS https://getcomposer.org/installer | php -- --version=2.5.5
           sudo mv composer.phar /usr/local/bin/composer  # Mozdítsd a fájlt globálisan elérhető helyre
-          composer update
-          composer install # Telepítse a függőségeket
-          php composer.phar install
-          composer --version  # Ellenőrizd a telepített Composer verzióját
+          composer install  # Telepíti a függőségeket
+          composer --version  # Ellenőrzi a telepített Composer verzióját
+
 
 
 
