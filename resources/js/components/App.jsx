@@ -8,7 +8,7 @@ export default function App(){
             Hi friends, in this tutorial you have learnt how to install and configure a simple React 18 application in Laravel 10 with Vite 3.<br />
             To learn more, please visit <strong>Recommended <a href="https://www.laravelclick.com/category/laravel">Laravel Tutorials</a></strong> and improvise yourself.
             </blockquote>
-            AWSWAWSAWSWAWSDSWDSWAAA
+            AWSWAWSAWSWAWSDSWDSWAAAEE
         </div>
     );
 };
