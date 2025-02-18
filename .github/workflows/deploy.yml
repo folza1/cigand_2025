@@ -80,5 +80,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}  # Az FTP jelszó
           local-dir: ./  # A helyi mappa, amit fel szeretnél tölteni
           server-dir: /cigand_2025/  # A szerver mappa, ahová tölteni szeretnéd
-          git-ftp-args: --syncroot --timeout 600  # Timeout növelése
+          timeout: 600  # Timeout növelése
 
