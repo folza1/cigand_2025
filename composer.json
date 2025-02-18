@@ -64,8 +64,5 @@
     
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "symfony/css-selector": "^6.0",
-    "symfony/event-dispatcher": "^6.0",
-    "symfony/string": "^6.0",
-    "symfony/yaml": "^6.0"
+    "config.optimize-auoloader": false
 }
