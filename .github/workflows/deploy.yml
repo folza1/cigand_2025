@@ -77,7 +77,7 @@ jobs:
         with:
           server: ${{ secrets.FTP_HOST }}  # Az FTP szerver címe
           username: ${{ secrets.FTP_USERNAME }}  # Az FTP felhasználónév
-          ftp-password: ${{ secrets.FTP_PASSWORD }}  # Az FTP jelszó
+          password: ${{ secrets.FTP_PASSWORD }}  # Az FTP jelszó
           local-dir: ./  # A helyi mappa, amit fel szeretnél tölteni
           server-dir: /cigand_2025/  # A szerver mappa, ahová tölteni szeretnéd
           git-ftp-args: --syncroot  # Csak a változott fájlokat tölti fel
