@@ -31,15 +31,6 @@ jobs:
           composer install  # Telepíti a függőségeket
           composer --version  # Ellenőrzi a telepített Composer verzióját
 
-
-
-
-
-      # - name: Install Composer dependencies for backend
-      #   run: |
-      #     curl -sS https://getcomposer.org/installer | php
-      #     php composer.phar install --no-dev --optimize-autoloader
-
       # 4. Laravel beállítások (kulcs generálás, cache)
       - name: Configure Laravel backend
         run: |
