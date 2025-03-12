@@ -75,10 +75,10 @@ jobs:
     - name: Deploy via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        ftp-server: ftp.nethely.hu
-        ftp-username: fodorzoltan317
-        ftp-password: fodorzoltan317
+        server: ftp.nethely.hu
+        username: fodorzoltan317
+        password: fodorzoltan317
         local-dir: ./  # Az aktuális mappa, amit fel szeretnél tölteni
-        remote-dir: ./  # A szerver mappája, ahová feltöltenéd
+        server-dir: ./  # A szerver mappája, ahová feltöltenéd
 
 
