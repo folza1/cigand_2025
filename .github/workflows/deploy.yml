@@ -73,7 +73,7 @@ jobs:
       uses: actions/checkout@v2  # A kód letöltése a repóból
 
     - name: Deploy via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v5
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         ftp-server: ftp.nethely.hu
         ftp-username: fodorzoltan317
